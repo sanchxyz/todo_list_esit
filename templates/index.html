@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Gustavo Sánchez</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            /* Negro */
+            font-family: sans-serif;
+        }
+
+        h1 {
+            color: #ccc;
+            /* Gris claro */
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        span {
+            color: #f5f58d;
+            /* Amarillo pastel */
+        }
+
+        p {
+            color: #ccc;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        button {
+            background-color: #f5f58d;
+            /* amarillo */
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gustavo <span>Sánchez</span></h1>
+    <p>técnico superior en la nube</p>
+    <button id="todoAppBtn">Todo App</button>
+
+    <script>
+        document.getElementById('todoAppBtn').addEventListener('click', function () {
+            window.location.href = 'https://github.com/sanchxyz';
+        });
+    </script>
+</body>
+
+</html>

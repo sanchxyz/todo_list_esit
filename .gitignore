@@ -1,0 +1,41 @@
+# Archivos y carpetas relacionados con Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Entorno virtual (venv)
+.venv/
+*.env
+
+# Archivos de logs
+*.log
+*.out
+*.err
+
+# Configuración de IDEs y editores de texto
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Configuración y datos de Flask
+instance/
+*.db
+*.sqlite
+migrations/
+
+# Archivos temporales y del sistema
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Archivos comprimidos y binarios
+*.zip
+*.tar.gz
+*.tgz
+*.7z
+*.exe
+*.dll
+*.so
+*.dylib
