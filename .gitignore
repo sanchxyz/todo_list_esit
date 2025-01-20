@@ -5,7 +5,6 @@ __pycache__/
 
 # Entorno virtual (venv)
 .venv/
-*.env
 
 # Archivos de logs
 *.log
