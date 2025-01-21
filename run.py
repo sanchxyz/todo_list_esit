@@ -6,4 +6,4 @@ from models import db
 if __name__ == '__main__':
     app = create_app()
     Migrate = Migrate(app, db)
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
