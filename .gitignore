@@ -18,10 +18,10 @@ __pycache__/
 *.swo
 
 # Configuración y datos de Flask
-instance/
-*.db
-*.sqlite
-migrations/
+#instance/
+#*.db
+#*.sqlite
+#migrations/
 
 # Archivos temporales y del sistema
 *.bak
