@@ -40,7 +40,16 @@
 
     <script>
         document.getElementById('todoAppBtn').addEventListener('click', function () {
-            window.location.href = '/todo/';
+            // Redirigir condicionalmente según autenticación
+            fetch('/is_authenticated')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.is_authenticated) {
+                        window.location.href = '/todo/';
+                    } else {
+                        window.location.href = '/auth/login';
+                    }
+                });
         });
     </script>
 </body>

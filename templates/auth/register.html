@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+
+<body
+    style="margin: 0; background-color: black; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <!-- Contenedor de la carta -->
+    <div
+        style="border: 2px solid #ffcc00; border-radius: 10px; padding: 20px; width: 90%; max-width: 400px; text-align: center; background-color: transparent;">
+        <!-- Título -->
+        <h1 style="color: #ccc; margin-bottom: 20px;">
+            <span style="color: #ffcc00;">Registro</span>
+        </h1>
+
+        <!-- Formulario -->
+        <form method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+            <label for="username" style="color: #ccc; font-size: 1em; text-align: left;">Usuario:</label>
+            <input type="text" id="username" name="username" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: black; color: #ccc;">
+
+            <label for="password" style="color: #ccc; font-size: 1em; text-align: left;">Contraseña:</label>
+            <input type="password" id="password" name="password" required
+                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: black; color: #ccc;">
+
+            <button type="submit"
+                style="padding: 10px; border-radius: 5px; border: none; background-color: #ffcc00; color: black; font-size: 1em; cursor: pointer; font-weight: bold;">
+                Registrarse
+            </button>
+        </form>
+
+        <!-- Texto de inicio de sesión -->
+        <p style="color: #ccc; margin-top: 20px;">
+            ¿Ya tienes una cuenta?
+        </p>
+        <a href="{{ url_for('auth.login') }}"
+            style="display: inline-block; padding: 10px 20px; border-radius: 5px; border: none; background-color: #ccc; color: black; text-decoration: none; font-size: 1em; font-weight: bold;">
+            Inicia Sesión
+        </a>
+    </div>
+</body>
+
+</html>
