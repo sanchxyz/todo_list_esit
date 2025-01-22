@@ -7,6 +7,10 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     completed = db.Column(db.Boolean, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # Relación con User
+
+    user = db.relationship('User', backref='tasks')  # Relación bidireccional
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

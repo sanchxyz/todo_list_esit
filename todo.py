@@ -17,7 +17,8 @@ def login_required(func):
 @todo_bp.route('/')
 @login_required
 def todo_list():
-    tasks = Task.query.all()
+    user_id = session['user_id']
+    tasks = Task.query.filter_by(user_id=user_id).all()  # Filtrar tareas del usuario
     return render_template('todo_list.html', tasks=tasks)
 
 @todo_bp.route('/add', methods=['POST'])
@@ -28,7 +29,8 @@ def add_task():
         flash('El título es obligatorio.', 'error')
         return redirect(url_for('todo.todo_list'))
     
-    new_task = Task(title=title)
+    user_id = session['user_id']
+    new_task = Task(title=title, user_id=user_id)  # Asignar tarea al usuario
     db.session.add(new_task)
     db.session.commit()
     return redirect(url_for('todo.todo_list'))
@@ -37,6 +39,10 @@ def add_task():
 @login_required
 def delete_task(task_id):
     task = Task.query.get_or_404(task_id)
+    if task.user_id != session['user_id']:  # Verificar que la tarea pertenece al usuario
+        flash('No tienes permiso para realizar esta acción.', 'error')
+        return redirect(url_for('todo.todo_list'))
+    
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for('todo.todo_list'))
