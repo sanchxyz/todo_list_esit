@@ -1,17 +1,17 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from models import db, Task
 from flask import Blueprint
+from functools import wraps
 
 todo_bp = Blueprint('todo', __name__, url_prefix='/todo')
 
 def login_required(func):
-    """Decorator to require login for certain routes."""
+    @wraps(func)
     def wrapper(*args, **kwargs):
         if 'user_id' not in session:
             flash('Por favor, inicia sesión para acceder a esta página.', 'error')
             return redirect(url_for('auth.login'))
         return func(*args, **kwargs)
-    wrapper.__name__ = func.__name__
     return wrapper
 
 @todo_bp.route('/')
