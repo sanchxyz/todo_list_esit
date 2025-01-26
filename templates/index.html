@@ -5,38 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Gustavo Sánchez</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
-<body
-    style="margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: black; font-family: sans-serif; text-align: center;">
-    <!-- Logo -->
-    <img src="/static/logo.webp" alt="Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+<body>
+    <!-- Tarjeta central -->
+    <div class="card">
+        <!-- Logo -->
+        <img src="/static/logo.webp" alt="Logo" class="logo">
 
-    <!-- Nombre -->
-    <h1 style="color: #ccc; font-size: 3rem; margin-bottom: 0.5rem;">
-        Gustavo <span style="color: #ffcc00;">Sánchez</span>
-    </h1>
+        <!-- Nombre -->
+        <h1 class="name">Gustavo <span class="highlight">Sánchez</span></h1>
 
-    <!-- Técnico -->
-    <p
-        style="color: #ccc; font-size: 1.2rem; font-style: italic; margin-top: -0.5rem; text-align: left; margin-left: 0;">
-        técnico superior en la nube
-    </p>
+        <!-- Técnico -->
+        <p class="subtitle">técnico superior en la nube</p>
 
-    <!-- Descripción -->
-    <p
-        style="color: lightgray; font-size: 0.9rem; font-style: italic; margin-top: 20px; text-align: left; margin-left: 0; width: 90%; max-width: 700px;">
-        Esto es un proyecto que aborda la creación de una app usando Python y el framework Flask,
-        con el objetivo de conocer y manejar estas tecnologías. La aplicación Todo App permite gestionar tareas
-        de forma sencilla y efectiva, almacenando, editando y eliminando elementos en una lista. Este proyecto es
-        ideal para aprender sobre desarrollo web y gestión de bases de datos.
-    </p>
+        <!-- Descripción -->
+        <p class="description">
+            Esto es un proyecto que aborda la creación de una app usando Python y el framework Flask,
+            con el objetivo de conocer y manejar estas tecnologías. La aplicación Todo App permite gestionar tareas
+            de forma sencilla y efectiva, almacenando, editando y eliminando elementos en una lista. Este proyecto es
+            ideal para aprender sobre desarrollo web y gestión de bases de datos.
+        </p>
 
-    <!-- Botón -->
-    <button id="todoAppBtn"
-        style="background-color: #ffcc00; color: black; border: none; border-radius: 10px; padding: 1rem 2rem; margin-top: 1rem; cursor: pointer; text-transform: uppercase; font-weight: bold;">
-        Todo App
-    </button>
+        <!-- Botón -->
+        <button id="todoAppBtn" class="todo-app-btn">Todo App</button>
+    </div>
 
     <script>
         document.getElementById('todoAppBtn').addEventListener('click', function () {

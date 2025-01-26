@@ -5,43 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
-<body
-    style="margin: 0; background-color: black; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
+<body>
     <!-- Contenedor de la carta -->
-    <div
-        style="border: 2px solid #ffcc00; border-radius: 10px; padding: 20px; width: 90%; max-width: 400px; text-align: center; background-color: transparent;">
+    <div class="register-card">
         <!-- Título -->
-        <h1 style="color: #ccc; margin-bottom: 20px;">
-            <span style="color: #ffcc00;">Registro</span>
-        </h1>
+        <h1 class="register-title"><span class="highlight">Registro</span></h1>
+
+        <!-- Pop-up de éxito -->
+        <div id="success-popup" class="popup success-popup">
+            <span id="success-message"></span>
+        </div>
+
+        <!-- Pop-up de error -->
+        <div id="error-popup" class="popup error-popup">
+            <span id="error-message"></span>
+        </div>
 
         <!-- Formulario -->
-        <form method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-            <label for="username" style="color: #ccc; font-size: 1em; text-align: left;">Usuario:</label>
-            <input type="text" id="username" name="username" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: black; color: #ccc;">
+        <form id="register-form" method="POST" class="register-form">
+            <label for="username" class="register-label">Usuario:</label>
+            <input type="text" id="username" name="username" required class="register-input">
 
-            <label for="password" style="color: #ccc; font-size: 1em; text-align: left;">Contraseña:</label>
-            <input type="password" id="password" name="password" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: black; color: #ccc;">
+            <label for="password" class="register-label">Contraseña:</label>
+            <input type="password" id="password" name="password" required class="register-input">
 
-            <button type="submit"
-                style="padding: 10px; border-radius: 5px; border: none; background-color: #ffcc00; color: black; font-size: 1em; cursor: pointer; font-weight: bold;">
-                Registrarse
-            </button>
+            <button type="submit" class="register-button">Registrarse</button>
         </form>
 
         <!-- Texto de inicio de sesión -->
-        <p style="color: #ccc; margin-top: 20px;">
+        <p class="register-text">
             ¿Ya tienes una cuenta?
         </p>
-        <a href="{{ url_for('auth.login') }}"
-            style="display: inline-block; padding: 10px 20px; border-radius: 5px; border: none; background-color: #ccc; color: black; text-decoration: none; font-size: 1em; font-weight: bold;">
-            Inicia Sesión
-        </a>
+        <a href="{{ url_for('auth.login') }}" class="register-login-link">Inicia Sesión</a>
     </div>
+
+    <script>
+        // Manejar el envío del formulario
+        document.getElementById('register-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Evitar el envío tradicional del formulario
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('/auth/register', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Mostrar el pop-up de éxito
+                    document.getElementById('success-message').textContent = data.success;
+                    document.getElementById('success-popup').style.display = 'block';
+
+                    // Redirigir al login después de 3 segundos
+                    setTimeout(() => {
+                        window.location.href = '/auth/login';
+                    }, 3000);
+                } else {
+                    // Mostrar el pop-up de error
+                    document.getElementById('error-message').textContent = data.error;
+                    document.getElementById('error-popup').style.display = 'block';
+
+                    // Ocultar el pop-up después de 3 segundos
+                    setTimeout(() => {
+                        document.getElementById('error-popup').style.display = 'none';
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
 </body>
 
 </html>

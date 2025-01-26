@@ -5,43 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
-<body
-    style="margin: 0; background-color: black; font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
+<body>
     <!-- Contenedor de la carta -->
-    <div
-        style="border: 2px solid #ffcc00; border-radius: 10px; padding: 20px; width: 90%; max-width: 400px; text-align: center; background-color: transparent;">
+    <div class="login-card">
         <!-- Título -->
-        <h1 style="color: #ccc; margin-bottom: 20px;">
-            Iniciar <span style="color: #ffcc00;">Sesión</span>
-        </h1>
+        <h1 class="login-title">Iniciar <span class="highlight">Sesión</span></h1>
+
+        <!-- Pop-up de error -->
+        <div id="error-popup" class="popup">
+            <span id="error-message"></span>
+        </div>
 
         <!-- Formulario -->
-        <form method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-            <label for="username" style="color: #ccc; font-size: 1em; text-align: left;">Usuario:</label>
-            <input type="text" id="username" name="username" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: black; color: #ccc;">
+        <form id="login-form" method="POST" class="login-form">
+            <label for="username" class="login-label">Usuario:</label>
+            <input type="text" id="username" name="username" required class="login-input">
 
-            <label for="password" style="color: #ccc; font-size: 1em; text-align: left;">Contraseña:</label>
-            <input type="password" id="password" name="password" required
-                style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; background-color: black; color: #ccc;">
+            <label for="password" class="login-label">Contraseña:</label>
+            <input type="password" id="password" name="password" required class="login-input">
 
-            <button type="submit"
-                style="padding: 10px; border-radius: 5px; border: none; background-color: #ffcc00; color: black; font-size: 1em; cursor: pointer; font-weight: bold;">
-                Iniciar Sesión
-            </button>
+            <button type="submit" class="login-button">Iniciar Sesión</button>
         </form>
 
         <!-- Texto de registro -->
-        <p style="color: #ccc; margin-top: 20px;">
+        <p class="login-text">
             ¿No tienes una cuenta?
         </p>
-        <a href="{{ url_for('auth.register') }}"
-            style="display: inline-block; padding: 10px 20px; border-radius: 5px; border: none; background-color: #ccc; color: black; text-decoration: none; font-size: 1em; font-weight: bold;">
-            Regístrate aquí
-        </a>
+        <a href="{{ url_for('auth.register') }}" class="login-register-link">Regístrate aquí</a>
     </div>
+
+    <script>
+        // Manejar el envío del formulario
+        document.getElementById('login-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Evitar el envío tradicional del formulario
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('/auth/login', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    // Redirigir si el inicio de sesión es exitoso
+                    window.location.href = '/todo/';
+                } else {
+                    // Mostrar el pop-up de error
+                    const data = await response.json();
+                    document.getElementById('error-message').textContent = data.error;
+                    document.getElementById('error-popup').style.display = 'block';
+
+                    // Ocultar el pop-up después de 3 segundos
+                    setTimeout(() => {
+                        document.getElementById('error-popup').style.display = 'none';
+                    }, 3000);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -5,51 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
-<body
-    style="background-color: black; margin: 0; font-family: Arial, sans-serif; display: flex; flex-direction: column; height: 100vh;">
-    <!-- Contenedor principal -->
-    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<body>
+    <!-- Tarjeta central -->
+    <div class="card">
         <!-- Encabezado -->
-        <div style="text-align: center; color: white;">
-            <h1 style="color: #ffcc00; display: inline;">TODO</h1>
-            <h2 style="font-size: 0.8em; color: lightgray; font-style: italic; display: inline; margin-left: 10px;">list
-            </h2>
+        <div class="header">
+            <h1>TODO</h1>
+            <h2>list</h2>
         </div>
 
         <!-- Formulario para añadir tareas -->
-        <form method="POST" action="/todo/add"
-            style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <input type="text" name="title" placeholder="Nueva tarea" required
-                    style="padding: 10px; border-radius: 10px; width: 60%; max-width: 400px; border: 1px solid lightgray; background-color: black; color: white; font-size: 1em;">
-                <button type="submit"
-                    style="padding: 10px 20px; border-radius: 10px; border: none; background-color: #ffcc00; color: black; font-size: 1em; cursor: pointer; width: auto;">Añadir</button>
+        <form method="POST" action="/todo/add" class="task-form">
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Nueva tarea" required>
+                <button type="submit">Añadir</button>
             </div>
         </form>
 
         <!-- Lista de tareas -->
-        <ul style="list-style: none; padding: 0; margin: 20px 0; width: 80%; max-width: 400px;">
+        <ul class="task-list">
             {% for task in tasks %}
-            <li
-                style="background-color: #333; padding: 10px; margin: 5px 0; border-radius: 10px; color: white; display: flex; justify-content: space-between; align-items: center;">
+            <li class="task-item">
                 <span>{{ task.title }}</span>
-                <a href="{{ url_for('todo.delete_task', task_id=task.id) }}"
-                    style="color: lightgray; text-decoration: none;">Eliminar</a>
+                <a href="{{ url_for('todo.delete_task', task_id=task.id) }}">Eliminar</a>
             </li>
             {% endfor %}
         </ul>
     </div>
 
     <!-- Enlaces en la parte inferior -->
-    <div style="text-align: center; padding: 20px;">
-        <a href="{{ url_for('auth.logout') }}"
-            style="padding: 10px 20px; background-color: #ffcc00; color: black; text-decoration: none; border-radius: 10px; font-size: 1em; cursor: pointer;">Cerrar
-            Sesión</a>
-        <a href="/"
-            style="padding: 10px 20px; background-color: lightgray; color: rgb(20, 13, 3); text-decoration: none; border-radius: 10px; font-size: 1em; cursor: pointer; margin-left: 10px;">Volver
-            a la página principal</a>
+    <div class="footer">
+        <a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a>
+        <a href="/" class="secondary">Volver a la página principal</a>
     </div>
 </body>
 
