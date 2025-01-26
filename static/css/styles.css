@@ -1,7 +1,6 @@
 /* styles.css */
 body {
     background-color: #1a1a1a;
-    /* Fondo oscuro */
     background-image: url('../background.svg');
     background-size: cover;
     background-position: center;
@@ -15,7 +14,6 @@ body {
     min-height: 100vh;
 }
 
-/* Capa oscura para mejorar la legibilidad */
 body::before {
     content: '';
     position: fixed;
@@ -26,43 +24,32 @@ body::before {
     background: url('../background.svg') no-repeat center center;
     background-size: cover;
     opacity: 0.3;
-    /* Ajusta la opacidad de la imagen de fondo */
     z-index: -1;
-    /* Coloca la imagen detrás del contenido */
 }
 
-/* Contenedor de la tarjeta */
 .card {
     background: rgba(0, 0, 0, 0.7);
-    /* Fondo semi-transparente oscuro */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
     width: 90%;
     max-width: 400px;
-    /* Tamaño similar a una tarjeta de crédito */
     color: #fff;
-    /* Texto blanco para contrastar con el fondo oscuro */
     text-align: center;
 }
 
 .header h1 {
     color: #b19cd9;
-    /* Morado pastel */
     display: inline;
     font-size: 2.5em;
-    /* Tamaño de "TODO" */
 }
 
 .header h2 {
     font-size: 1.2em;
-    /* Tamaño de "list" un poco más grande */
     color: #cccccc;
-    /* Gris muy claro */
     font-style: italic;
     display: inline;
     margin-left: 5px;
-    /* Menor separación entre "TODO" y "list" */
 }
 
 .task-form {
@@ -93,7 +80,6 @@ body::before {
 .task-form button {
     padding: 10px 20px;
     background-color: #b19cd9;
-    /* Morado pastel */
     color: white;
     border: none;
     border-radius: 5px;
@@ -103,7 +89,6 @@ body::before {
 
 .task-form button:hover {
     background-color: #9a8ac2;
-    /* Morado pastel más oscuro al pasar el mouse */
 }
 
 .task-list {
@@ -128,7 +113,6 @@ body::before {
 
 .task-item a {
     background-color: #ff6666;
-    /* Rojo pastel */
     color: white;
     border: none;
     border-radius: 5px;
@@ -139,7 +123,6 @@ body::before {
 
 .task-item a:hover {
     background-color: #e65c5c;
-    /* Rojo pastel más oscuro al pasar el mouse */
 }
 
 .footer {
@@ -153,33 +136,26 @@ body::before {
 .footer a {
     padding: 10px 20px;
     background-color: #b19cd9;
-    /* Morado pastel */
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
     margin: 0 10px;
-    /* Separación entre botones */
 }
 
 .footer a:hover {
     background-color: #9a8ac2;
-    /* Morado pastel más oscuro */
 }
 
 .footer a.secondary {
     background-color: #ff6666;
-    /* Rojo pastel */
 }
 
 .footer a.secondary:hover {
     background-color: #e65c5c;
-    /* Rojo pastel más oscuro */
 }
 
-
-/* Estilos nuevos para index.html */
 .logo {
     width: 100px;
     height: auto;
@@ -194,7 +170,6 @@ body::before {
 
 .name .highlight {
     color: #b19cd9;
-    /* Morado pastel */
 }
 
 .subtitle {
@@ -218,7 +193,6 @@ body::before {
 
 .todo-app-btn {
     background-color: #b19cd9;
-    /* Morado pastel */
     color: white;
     border: none;
     border-radius: 10px;
@@ -232,36 +206,27 @@ body::before {
 
 .todo-app-btn:hover {
     background-color: #9a8ac2;
-    /* Morado pastel más oscuro */
 }
 
-
-/* Estilos para login.html */
 .login-card {
     background: rgba(0, 0, 0, 0.7);
-    /* Fondo semi-transparente oscuro */
-    border: 2px solid #b19cd9;
-    /* Borde morado pastel */
     border-radius: 15px;
-    /* Esquinas redondeadas */
+    /* Eliminado el borde morado */
     padding: 20px;
     width: 90%;
     max-width: 400px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    /* Sombra suave */
 }
 
 .login-title {
     color: #cccccc;
-    /* Gris claro */
     margin-bottom: 20px;
     font-size: 2em;
 }
 
 .login-title .highlight {
     color: #b19cd9;
-    /* Morado pastel */
 }
 
 .login-form {
@@ -272,7 +237,6 @@ body::before {
 
 .login-label {
     color: #cccccc;
-    /* Gris claro */
     font-size: 1em;
     text-align: left;
 }
@@ -281,17 +245,13 @@ body::before {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #444;
-    /* Borde gris oscuro */
     background-color: rgba(255, 255, 255, 0.1);
-    /* Fondo semi-transparente */
     color: white;
-    /* Texto blanco */
     font-size: 1em;
 }
 
 .login-input:focus {
     border-color: #b19cd9;
-    /* Borde morado pastel al enfocar */
     outline: none;
 }
 
@@ -300,9 +260,7 @@ body::before {
     border-radius: 5px;
     border: none;
     background-color: #b19cd9;
-    /* Morado pastel */
     color: white;
-    /* Texto blanco */
     font-size: 1em;
     cursor: pointer;
     font-weight: bold;
@@ -310,12 +268,10 @@ body::before {
 
 .login-button:hover {
     background-color: #9a8ac2;
-    /* Morado pastel más oscuro al pasar el mouse */
 }
 
 .login-text {
     color: #cccccc;
-    /* Gris claro */
     margin-top: 20px;
 }
 
@@ -325,9 +281,7 @@ body::before {
     border-radius: 5px;
     border: none;
     background-color: #ff6666;
-    /* Rojo pastel */
     color: white;
-    /* Texto blanco */
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
@@ -335,37 +289,27 @@ body::before {
 
 .login-register-link:hover {
     background-color: #e65c5c;
-    /* Rojo pastel más oscuro al pasar el mouse */
 }
 
-
-
-/* Estilos para register.html */
 .register-card {
     background: rgba(0, 0, 0, 0.7);
-    /* Fondo semi-transparente oscuro */
-    border: 2px solid #b19cd9;
-    /* Borde morado pastel */
     border-radius: 15px;
-    /* Esquinas redondeadas */
+    /* Eliminado el borde morado */
     padding: 20px;
     width: 90%;
     max-width: 400px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    /* Sombra suave */
 }
 
 .register-title {
     color: #cccccc;
-    /* Gris claro */
     margin-bottom: 20px;
     font-size: 2em;
 }
 
 .register-title .highlight {
     color: #b19cd9;
-    /* Morado pastel */
 }
 
 .register-form {
@@ -376,7 +320,6 @@ body::before {
 
 .register-label {
     color: #cccccc;
-    /* Gris claro */
     font-size: 1em;
     text-align: left;
 }
@@ -385,17 +328,13 @@ body::before {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #444;
-    /* Borde gris oscuro */
     background-color: rgba(255, 255, 255, 0.1);
-    /* Fondo semi-transparente */
     color: white;
-    /* Texto blanco */
     font-size: 1em;
 }
 
 .register-input:focus {
     border-color: #b19cd9;
-    /* Borde morado pastel al enfocar */
     outline: none;
 }
 
@@ -404,9 +343,7 @@ body::before {
     border-radius: 5px;
     border: none;
     background-color: #b19cd9;
-    /* Morado pastel */
     color: white;
-    /* Texto blanco */
     font-size: 1em;
     cursor: pointer;
     font-weight: bold;
@@ -414,12 +351,10 @@ body::before {
 
 .register-button:hover {
     background-color: #9a8ac2;
-    /* Morado pastel más oscuro al pasar el mouse */
 }
 
 .register-text {
     color: #cccccc;
-    /* Gris claro */
     margin-top: 20px;
 }
 
@@ -429,9 +364,7 @@ body::before {
     border-radius: 5px;
     border: none;
     background-color: #ff6666;
-    /* Rojo pastel */
     color: white;
-    /* Texto blanco */
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
@@ -439,82 +372,50 @@ body::before {
 
 .register-login-link:hover {
     background-color: #e65c5c;
-    /* Rojo pastel más oscuro al pasar el mouse */
 }
 
-/* Estilos para el pop-up de error */
 .popup {
     display: none;
-    /* Oculto por defecto */
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #ff6666;
-    /* Rojo pastel */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    /* Asegura que esté por encima de todo */
     animation: fadeInOut 3s ease-in-out;
 }
 
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* Estilos para el pop-up de éxito */
 .success-popup {
     display: none;
-    /* Oculto por defecto */
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #b19cd9;
-    /* Morado pastel */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    /* Asegura que esté por encima de todo */
     animation: fadeInOut 3s ease-in-out;
 }
 
-/* Estilos para el pop-up de error (ya existente) */
 .error-popup {
     display: none;
-    /* Oculto por defecto */
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #ff6666;
-    /* Rojo pastel */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    /* Asegura que esté por encima de todo */
     animation: fadeInOut 3s ease-in-out;
 }
 
@@ -533,5 +434,36 @@ body::before {
 
     100% {
         opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .card,
+    .login-card,
+    .register-card {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .footer a,
+    .login-register-link,
+    .register-login-link {
+        padding: 8px 16px;
+        font-size: 0.9em;
+        margin: 5px;
+    }
+
+    .footer a.secondary,
+    .login-register-link,
+    .register-login-link {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .login-button,
+    .register-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
     }
 }
